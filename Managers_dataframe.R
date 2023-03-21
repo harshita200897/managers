@@ -133,8 +133,19 @@ missing_values <- aggr(managers_data,
 summary(missing_values)
 matrixplot(managers_data)
 
+#extract age and Q1 #
 
+names(managers_data) 
+include_list <- names(managers_data)
+include_list
+class(include_list)
+include_list <- names(managers_data) %in% c("Age","Q1")
+include_list
+new_data <- managers_data[names(managers_data) %in% c("Age","Q1")]
+new_data
+#using subset function 
+new_data <- subset(managers_data , select = c("Age", "Q1"))
+new_data
 
-
-
-
+new_data <- subset(managers_data,Age >35 | Age<24,  select =c("Gender","Age"))
+new_data
